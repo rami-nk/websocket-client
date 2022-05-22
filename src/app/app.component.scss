@@ -44,6 +44,15 @@
             color: white;
             width: fit-content;
             padding: 0 20px 0 20px;
+
+            &:hover {
+              cursor: pointer;
+              background: cornflowerblue;
+            }
+
+            &:disabled {
+              cursor: progress;
+            }
           }
         }
       }
@@ -56,7 +65,7 @@
         .message-input {
           height: 30px;
           display: grid;
-          grid-template-columns: 2fr 1fr;
+          grid-template-columns: 2fr 1fr 1fr;
           grid-gap: 10px;
 
           input {
@@ -70,8 +79,19 @@
             border-radius: 3px;
             font-weight: 800;
             color: white;
-            width: fit-content;
-            padding: 0 20px 0 20px;
+
+            &:hover {
+              cursor: pointer;
+              background: cornflowerblue;
+            }
+          }
+
+          .close-connection-button {
+            background: red;
+
+            &:hover {
+              background: darkred;
+            }
           }
         }
       }
@@ -81,6 +101,23 @@
         flex: 1;
         border-radius: 3px;
         margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        overflow-y: auto;
+
+        .message {
+          box-sizing: border-box;
+
+          &.info {
+            color: black;
+          }
+
+          &.error {
+            color: red;
+          }
+        }
       }
     }
   }

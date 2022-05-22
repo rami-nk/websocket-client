@@ -1,19 +1,24 @@
 <div class="main">
   <div class="body">
-    <div *ngIf="!connected" class="connection-area">
+    <div *ngIf="!websocketService.isConnected()" class="connection-area">
       <label>Enter your websocket url and connect</label>
       <div class="connect-input">
-        <input type="text" value="wss://test-url" />
-        <button>Connect</button>
+        <input [(ngModel)]="url" type="text" value="wss://test-url" />
+        <button (click)="this.websocketService.connect(this.url)" [disabled]="this.websocketService.isConnecting()">Connect</button>
       </div>
     </div>
-    <div *ngIf="connected" class="message-area">
+    <div *ngIf="websocketService.isConnected()" class="message-area">
       <label>Enter your message</label>
       <div class="message-input">
-        <input type="text" value="Hey Server!" />
-        <button>Send</button>
+        <input [(ngModel)]="message" type="text" />
+        <button (click)="websocketService.send(this.message)">Send</button>
+        <button (click)="websocketService.close();" class="close-connection-button">Close</button>
       </div>
     </div>
-    <div class="output-area"></div>
+    <div class="output-area">
+      <div *ngFor="let message of messages" class="message {{message.severity}}">
+        {{message.content}}
+      </div>
+    </div>
   </div>
 </div>
