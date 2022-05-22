@@ -10,11 +10,10 @@ import {Subscription} from "rxjs";
 })
 export class AppComponent implements OnDestroy {
 
-  private $messages: Subscription;
-
   public message: string = "Hey Server!";
   public url: string = "wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self";
   public messages: Message[] = [];
+  private $messages: Subscription;
 
   constructor(public websocketService: WebsocketService) {
     this.$messages = websocketService.observable.subscribe(_messages => {
