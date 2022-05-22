@@ -1,4 +1,5 @@
 export interface Message {
   content: string;
-  severity: 'info' | 'error'
+  direction: "out" | "in" | "log";
+  severity: 'info' | 'error' | 'message';
 }

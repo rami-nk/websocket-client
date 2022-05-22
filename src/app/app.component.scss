@@ -123,6 +123,18 @@
             &.error {
               color: red;
             }
+
+            &.out {
+              color: green;
+            }
+
+            &.in {
+              color: cornflowerblue;
+            }
+
+            &.log {
+              font-weight: bold;
+            }
           }
         }
 

@@ -19,7 +19,7 @@
     </div>
     <div class="output-area">
       <div class="output">
-        <div *ngFor="let message of messages" class="message {{message.severity}}">
+        <div *ngFor="let message of messages" class="message {{message.severity}} {{message.direction}}">
           {{message.content}}
         </div>
       </div>

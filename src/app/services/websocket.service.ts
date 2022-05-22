@@ -16,22 +16,22 @@ export class WebsocketService {
     try {
       this.websocket = new WebSocket(url);
       this.websocket.onerror = error => {
-        this.addMessage(`Error occurred: ${error.type}: See dev tools for more information`, "error");
+        this.addMessage(`Error occurred: ${error.type}: See dev tools for more information`, "log", "error");
         this.close()
       };
-      this.websocket.onclose = _ => this.addMessage(`Connection closed!`, "info");
-      this.websocket.onmessage = message => this.addMessage(message.data, "info");
+      this.websocket.onclose = _ => this.addMessage(`Connection closed!`, "log", "info");
+      this.websocket.onmessage = message => this.addMessage(`Server: ${message.data}`, "in", "message");
     } catch (e) {
-      this.addMessage("Connection failed!", "error");
+      this.addMessage("Connection failed!", "log", "error");
       return false;
     }
-    this.addMessage("Connection successful!", "info");
+    this.addMessage("Connection successful!", "log", "info");
     return true;
   }
 
   public send(message: string): void {
     this.websocket?.send(message);
-    this.addMessage(`Sent message: ${message}`, "info");
+    this.addMessage(`Client: ${message}`, "out", "info");
   }
 
   public isConnected(): boolean {
@@ -50,7 +50,7 @@ export class WebsocketService {
     this.websocket?.close();
   }
 
-  private addMessage(message: string, severity: Message["severity"]): void {
-    this.subject.next([...this.subject.value, {content: message, severity: severity}]);
+  private addMessage(message: string, direction: Message["direction"], severity: Message["severity"]): void {
+    this.subject.next([...this.subject.value, {content: message, direction: direction, severity: severity}]);
   }
 }
