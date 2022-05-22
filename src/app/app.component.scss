@@ -51,7 +51,8 @@
             }
 
             &:disabled {
-              cursor: progress;
+              cursor: default;
+              background: gray;
             }
           }
         }
