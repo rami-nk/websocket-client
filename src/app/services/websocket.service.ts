@@ -42,6 +42,10 @@ export class WebsocketService {
     return this.websocket?.readyState === 0;
   }
 
+  public clearMessages(): void {
+    this.subject.next([]);
+  }
+
   public close(): void {
     this.websocket?.close();
   }
