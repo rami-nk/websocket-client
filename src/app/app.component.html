@@ -6,7 +6,9 @@
     <div *ngIf="!websocketService.isConnected()" class="connection-area">
       <label>Enter your websocket url and connect</label>
       <div class="connect-input">
-        <input [(ngModel)]="url" type="text"/>
+        <input [(ngModel)]="url" type="text"
+               autofocus
+               (keyup.enter)="this.websocketService.connect(this.url)"/>
         <button (click)="this.websocketService.connect(this.url)" [disabled]="this.websocketService.isConnecting()">
           Connect
         </button>
@@ -15,7 +17,9 @@
     <div *ngIf="websocketService.isConnected()" class="message-area">
       <label>Enter your message</label>
       <div class="message-input">
-        <input [(ngModel)]="message" type="text"/>
+        <input [(ngModel)]="message" type="text"
+               autofocus
+               (keyup.enter)="websocketService.send(this.message)"/>
         <button (click)="websocketService.send(this.message)">Send</button>
         <button (click)="websocketService.close();" class="close-connection-button">Close</button>
       </div>
