@@ -9,11 +9,13 @@ export class WebsocketService {
 
   private websocket: WebSocket | undefined;
   private subject: BehaviorSubject<Message[]> = new BehaviorSubject<Message[]>([]);
+
   public observable: Observable<Message[]> = this.subject.asObservable();
 
   public connect(url: string): boolean {
     this.subject.next([]);
     try {
+      this.addMessage("Connecting...", "log", "info");
       this.websocket = new WebSocket(url);
       this.websocket.onerror = error => {
         this.addMessage(`Error occurred: ${error.type}: See dev tools for more information`, "log", "error");
@@ -25,7 +27,7 @@ export class WebsocketService {
       this.addMessage("Connection failed!", "log", "error");
       return false;
     }
-    this.addMessage("Connection successful!", "log", "info");
+    this.websocket.onopen = _ => this.addMessage("Connection successful!", "log", "info");
     return true;
   }
 
