@@ -15,7 +15,7 @@ export class WebsocketService {
   public connect(url: string): boolean {
     this.subject.next([]);
     try {
-      this.addMessage("Connecting...", "log", "info");
+      this.addMessage("Connecting ...", "log", "info");
       this.websocket = new WebSocket(url);
       this.websocket.onerror = error => {
         this.addMessage(`Error occurred: ${error.type}: See dev tools for more information`, "log", "error");
