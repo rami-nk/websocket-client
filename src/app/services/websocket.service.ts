@@ -12,6 +12,7 @@ export class WebsocketService {
   public observable: Observable<Message[]> = this.subject.asObservable();
 
   public connect(url: string): boolean {
+    this.subject.next([]);
     try {
       this.websocket = new WebSocket(url);
       this.websocket.onerror = error => {
