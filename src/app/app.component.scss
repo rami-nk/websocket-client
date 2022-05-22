@@ -3,14 +3,18 @@
   .main {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: repeat(3, 3fr);
     justify-content: center;
     align-items: center;
 
+    header h1 {
+      text-align: center;
+    }
+
     .body {
       height: 400px;
-      width: 600px;
+      width: 800px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -28,7 +32,7 @@
         .connect-input {
           height: 30px;
           display: grid;
-          grid-template-columns: 2fr 1fr;
+          grid-template-columns: 6fr 1fr;
           grid-gap: 10px;
 
           input {
@@ -37,7 +41,7 @@
           }
 
           button {
-            background: dodgerblue;
+            background: mediumpurple;
             border: none;
             border-radius: 3px;
             font-weight: 800;
@@ -66,7 +70,7 @@
         .message-input {
           height: 30px;
           display: grid;
-          grid-template-columns: 2fr 1fr 1fr;
+          grid-template-columns: 5fr 1fr 1fr;
           grid-gap: 10px;
 
           input {
@@ -75,7 +79,7 @@
           }
 
           button {
-            background: dodgerblue;
+            background: mediumpurple;
             border: none;
             border-radius: 3px;
             font-weight: 800;
@@ -88,7 +92,7 @@
           }
 
           .close-connection-button {
-            background: red;
+            background: #b63434;
 
             &:hover {
               background: darkred;
