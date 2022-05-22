@@ -1,0 +1,87 @@
+:host {
+
+  .main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .body {
+      height: 400px;
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-radius: 2px;
+      background: rgb(47, 47, 47);
+      box-sizing: border-box;
+      padding: 25px;
+      color: white;
+
+      .connection-area {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .connect-input {
+          height: 30px;
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          grid-gap: 10px;
+
+          input {
+            box-sizing: border-box;
+            padding: 10px;
+          }
+
+          button {
+            background: dodgerblue;
+            border: none;
+            border-radius: 3px;
+            font-weight: 800;
+            color: white;
+            width: fit-content;
+            padding: 0 20px 0 20px;
+          }
+        }
+      }
+
+      .message-area {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .message-input {
+          height: 30px;
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          grid-gap: 10px;
+
+          input {
+            box-sizing: border-box;
+            padding: 10px;
+          }
+
+          button {
+            background: dodgerblue;
+            border: none;
+            border-radius: 3px;
+            font-weight: 800;
+            color: white;
+            width: fit-content;
+            padding: 0 20px 0 20px;
+          }
+        }
+      }
+
+      .output-area {
+        background: white;
+        flex: 1;
+        border-radius: 3px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
