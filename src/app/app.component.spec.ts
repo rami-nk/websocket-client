@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'websocket-server'`, () => {
+  it(`should have as title 'websocket-client'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('websocket-server');
+    expect(app.title).toEqual('websocket-client');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('websocket-server app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('websocket-client app is running!');
   });
 });

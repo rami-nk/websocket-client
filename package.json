@@ -1,5 +1,5 @@
 {
-  "name": "websocket-server",
+  "name": "websocket-client",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
