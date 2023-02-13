@@ -15,7 +15,7 @@ websocket-client with Angular UI.
 git clone https://github.com/rami-nk/websocket-client.git
 cd websocket-client
 npm install
-npm run start or ng serve
+ng serve # or npm run start
 ```
 
 Navigate to `http://localhost:4200/`.
